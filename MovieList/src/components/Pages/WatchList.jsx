@@ -1,7 +1,10 @@
+import ApiFetch from "../apiFetch"
 
 const WatchList = () => {
   return (
-    <div className=" m-10 text-center text-white">MoviesToWatch</div>
+    <div>
+    
+    </div>
   )
 }
 

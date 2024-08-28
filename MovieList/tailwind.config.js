@@ -10,6 +10,10 @@ export default {
         'navbar': "#323031",
         'maincolor': "#151513"
       },
+      zIndex: {
+        '1':'1',
+        '2':'2',
+      }
     },
   },
   plugins: [],

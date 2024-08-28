@@ -16,7 +16,7 @@ const Sidebar = ({ onTitleChange }) => {
     <div className="shadow-white">
       <HiBars3 className="text-4xl text-white absolute top-6 left-5" onClick={toggleSideBar} />
       {show && (
-        <div className="bg-navbar border-2 shadow-md px-12 py-0 top-0 fixed h-screen w-64 ">
+        <div className="bg-navbar border-2 shadow-md px-12 py-0 top-0 fixed z-1 h-screen w-64 ">
           <p className="text-xl text-white m-7">Sidebar</p>
           <HiBars3 className="text-4xl text-white absolute top-3 right-6 mt-3 " onClick={toggleSideBar} />
           <div className="flex flex-col gap-2 text-white p-4 text-xl">
