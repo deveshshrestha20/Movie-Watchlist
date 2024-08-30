@@ -2,7 +2,7 @@
 
 const WatchedList = () => {
   return (
-    <div className="text-center text-white m-10">MoviesWatched</div>
+    <div className="text-center text-white m-10"></div>
   )
 }
 

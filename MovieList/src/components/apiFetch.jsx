@@ -15,11 +15,11 @@ const ApiFetch = () => {
             const response = await fetch(`${BASE_URL}api_key=${apikey}`);
             const movie = await response.json() 
             setMovies(movie.results);
-            console.log(movie);
             
-            } catch(err) {
-                setError(err);
-                console.error("Error Fetching Movies:", err)
+            
+            } catch(error) {
+                setError(error);
+                console.error("Error Fetching Movies:", error)
             }
             
         }
