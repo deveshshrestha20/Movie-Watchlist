@@ -10,23 +10,22 @@ const Sidebar = ({ onTitleChange }) => {
   };
 
   return (
-    <div className="shadow-white">
+    <div className="">
       <HiBars3
-        className="text-4xl text-white absolute top-6 left-5 cursor-pointer"
+        className="text-4xl text-white absolute top-6 left-5 cursor-pointer  z-60"
         onClick={toggleSideBar}
         aria-expanded={show}
         aria-controls="sidebar"
       />
       {show && (
-        <div className="bg-navbar border-2 shadow-md px-12 py-0 top-0 fixed z-1 h-screen w-64 ">
-          <p className="text-xl text-white m-7">Sidebar</p>
+        <div className="bg-navbar border-2 border-none shadow-xl px-12 py-0 top-0 fixed  h-screen w-64 z-70 ">
           <HiBars3
-            className="text-4xl text-white absolute top-3 right-6 cursor-pointer"
+            className="text-4xl text-white absolute top-7 right-6 cursor-pointer "
             onClick={toggleSideBar}
             aria-expanded={show}
             aria-controls="sidebar"
           />
-          <div className="flex flex-col gap-2 text-white p-4 text-xl">
+          <div className="flex flex-col gap-2 text-white p-2 text-xl absolute top-14 ">
             <NavLink
               to="/"
               className="p-2"

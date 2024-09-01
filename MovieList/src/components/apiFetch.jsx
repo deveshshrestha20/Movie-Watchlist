@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Card from './Card';
-import axios from 'axios';
+import React, { useState, useEffect, useCallback } from "react";
+import Card from "./Card";
+import axios from "axios";
 
 const ApiFetch = ({ query }) => {
   const [movies, setMovies] = useState([]);
@@ -16,12 +16,14 @@ const ApiFetch = ({ query }) => {
     setError(null);
 
     try {
-      const url = query ? `${SEARCH_URL}${encodeURIComponent(query)}` : DISCOVER_URL;
+      const url = query
+        ? `${SEARCH_URL}${encodeURIComponent(query)}`
+        : DISCOVER_URL;
       const response = await axios.get(url);
       setMovies(response.data.results);
     } catch (error) {
-      setError('Failed to fetch movies. Please try again later.');
-      console.error('Error fetching movies:', error);
+      setError("Failed to fetch movies. Please try again later.");
+      console.error("Error fetching movies:", error);
     } finally {
       setLoading(false);
     }
@@ -45,15 +47,11 @@ const ApiFetch = ({ query }) => {
           <Card
             key={movie.id}
             title={movie.title}
-            image={
-              movie.poster_path
-                ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-                : 'https://via.placeholder.com/300x450?text=No+Image'
-            }
-            date={movie.release_date ? movie.release_date.slice(0, 4) : 'N/A'}
-            name={movie.title}
+            image={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+            date={movie.release_date ? movie.release_date.slice(0, 4) : "N/A"}
+            name={movie.title.slice(0, 60)}
             details={movie.overview}
-            rating={String(movie.vote_average).slice(0, 3) || 'N/A'}
+            rating={String(movie.vote_average).slice(0, 3) || "N/A"}
           />
         ))}
       </div>

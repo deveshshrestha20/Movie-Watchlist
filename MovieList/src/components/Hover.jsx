@@ -3,7 +3,7 @@ import { IoIosAddCircleOutline } from 'react-icons/io';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5'; 
 import MovieDetails from './MovieDetails';
 
-const Hover = ({ name, details, date, movieId }) => {
+const Hover = ({ name, details, date }) => {
 
 
   const [isActive, setIsActive] = useState(false);
