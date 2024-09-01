@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import ApiFetch from './components/apiFetch';
 
+
 function App() {
   const [headerTitle, setHeaderTitle] = useState("Home");
   const [query, setQuery] = useState(''); // Manage the search query state

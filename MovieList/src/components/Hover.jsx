@@ -3,12 +3,8 @@ import { IoIosAddCircleOutline } from 'react-icons/io';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5'; 
 import MovieDetails from './MovieDetails';
 
-const Hover = ({ name, details, date }) => {
-
-
+const Hover = ({ name, details, date, movieId }) => {
   const [isActive, setIsActive] = useState(false);
-
-
 
   // Toggle active state on click
   const handleIconClick = () => {
@@ -16,7 +12,7 @@ const Hover = ({ name, details, date }) => {
   };
 
   return (
-    <div className='w-56 h-72 bg-black opacity-60 relative'>
+    <div className='relative w-56 h-72 bg-black opacity-60'>
       {/* Render different icons based on the isActive state */}
       {!isActive ? (
         <IoIosAddCircleOutline
@@ -30,7 +26,13 @@ const Hover = ({ name, details, date }) => {
         />
       )}
 
-      <MovieDetails name={name} details={details} date={date} />
+      {/* Pass movieId to MovieDetails */}
+      <MovieDetails 
+        name={name} 
+        details={details} 
+        date={date} 
+        movieId={movieId} 
+      />
     </div>
   );
 };
