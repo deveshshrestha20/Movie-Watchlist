@@ -1,18 +1,15 @@
+// Card.js
 import { useState } from 'react';
 import Hover from './Hover';
 
-const Card = ({ title, image, date, name, details, rating, movieId }) => {
+const Card = ({ title, image, date, name, details, rating, movieId, mediaType }) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
     <div
       className="w-56 h-72 m-3 rounded-lg shadow-md bg-gray-800 hover:shadow-xl transform hover:scale-125 transition-transform duration-300"
-      onMouseEnter={() => {
-        setIsActive(true);
-      }}
-      onMouseLeave={() => {
-        setIsActive(false);
-      }}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
     >
       {isActive && (
         <div className="absolute inset-0 z-10">
@@ -21,6 +18,7 @@ const Card = ({ title, image, date, name, details, rating, movieId }) => {
             details={details} 
             date={date} 
             movieId={movieId} 
+            mediaType={mediaType} // Pass mediaType to Hover
           />
         </div>
       )}
