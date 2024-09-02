@@ -32,6 +32,7 @@ const MovieDetails = ({ name, details, date, movieId, mediaType }) => {
           ...tvGenresResponse.data.genres,
         ];
         setAllGenres(combinedGenres);
+        
       } catch (err) {
         console.error('Failed to fetch genres:', err);
         setError('Failed to load genres');
@@ -50,7 +51,7 @@ const MovieDetails = ({ name, details, date, movieId, mediaType }) => {
           
           const itemResponse = await axios.get(detailsUrl);
           const genreIds = itemResponse.data.genres.map((genre) => genre.id);
-
+          
           const matchedGenres = allGenres
             .filter((genre) => genreIds.includes(genre.id))
             .map((genre) => genre.name);
@@ -60,8 +61,9 @@ const MovieDetails = ({ name, details, date, movieId, mediaType }) => {
             `https://api.themoviedb.org/3/${mediaType}/${movieId}/videos?api_key=${apiKey}`
           );
           const trailers = trailerResponse.data.results;
+          console.log(trailers)
           const officialTrailer = trailers.find(
-            (trailer) => trailer.name === 'Official Trailer'
+            (trailer) => trailer.name === 'Official Trailer' || trailer.type === 'Trailer' || trailer.name === 'Official Trailer [Subtitled]'
           );
           setTrailerUrl(
             officialTrailer ? `https://www.youtube.com/watch?v=${officialTrailer.key}` : null
@@ -103,7 +105,7 @@ const MovieDetails = ({ name, details, date, movieId, mediaType }) => {
           onClick={handleClose}
         >
           <div
-            className="bg-maincolor text-white p-6 rounded-lg shadow-lg w-full max-w-4xl h-72 max-h-screen relative overflow-auto"
+            className="bg-maincolor text-white p-6 rounded-lg shadow-lg w-full max-w-4xl h-72 max-h-screen relative overflow-auto sm:max-w-xl h-96"
             onClick={(e) => e.stopPropagation()}
           >
             <Typography id="modal-title" variant="h5" component="h2" className="text-xl font-bold mb-2">

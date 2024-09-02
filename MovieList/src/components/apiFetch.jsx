@@ -35,7 +35,6 @@ const ApiFetch = ({ query }) => {
       ];
 
       setItems(combinedResults);
-      console.log(combinedResults);
     } catch (error) {
       setError('Failed to fetch items. Please try again later.');
       console.error('Error fetching items:', error);
