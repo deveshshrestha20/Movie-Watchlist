@@ -69,7 +69,7 @@ const ApiFetch = ({ query }) => {
       {filteredItems.map((item) => (
         <Card
           key={item.id}
-          title={item.title || item.name} // Movie titles use `title`, TV series use `name`
+          title={item.title || item.name} 
           image={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
           date={
             item.release_date
@@ -82,7 +82,7 @@ const ApiFetch = ({ query }) => {
           details={item.overview}
           rating={String(item.vote_average).slice(0, 3) || 'N/A'}
           movieId={item.id}
-          mediaType={item.media_type} // Pass the media type to Card and MovieDetails
+          mediaType={item.media_type} 
         />
       ))}
     </div>

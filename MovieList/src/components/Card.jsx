@@ -18,7 +18,7 @@ const Card = ({ title, image, date, name, details, rating, movieId, mediaType })
             details={details} 
             date={date} 
             movieId={movieId} 
-            mediaType={mediaType} // Pass mediaType to Hover
+            mediaType={mediaType}
           />
         </div>
       )}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { TbDotsCircleHorizontal } from 'react-icons/tb';
+import { HiDotsHorizontal } from "react-icons/hi";
 import { FaPlay } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -88,8 +88,8 @@ const MovieDetails = ({ name, details, date, movieId, mediaType }) => {
 
   return (
     <div>
-      <TbDotsCircleHorizontal
-        className="absolute top-28 left-24 p-1 h-16 w-20 text-white cursor-pointer"
+      <HiDotsHorizontal
+        className="absolute top-0 right-1 mt-2 h-11 w-12 text-white cursor-pointer"
         onClick={handleOpen}
       />
 
@@ -105,7 +105,7 @@ const MovieDetails = ({ name, details, date, movieId, mediaType }) => {
           onClick={handleClose}
         >
           <div
-            className="bg-maincolor text-white p-6 rounded-lg shadow-lg w-full max-w-4xl h-72 max-h-screen relative overflow-auto sm:max-w-xl h-96"
+            className="bg-maincolor text-white p-6 rounded-lg shadow-lg w-full max-w-4xl h-72 max-h-screen relative overflow-auto sm:max-w-xl sm:h-96"
             onClick={(e) => e.stopPropagation()}
           >
             <Typography id="modal-title" variant="h5" component="h2" className="text-xl font-bold mb-2">

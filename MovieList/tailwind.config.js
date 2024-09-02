@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         'navbar': "#323031",
-        'maincolor': "#151513"
+        'maincolor': "#151513",
+        'addcolor' : '#FF1F1F',
       },
       zIndex: {
         '1':'1',
