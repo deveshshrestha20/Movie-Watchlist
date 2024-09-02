@@ -1,10 +1,9 @@
 // Hover.js
 import React, { useState } from 'react';
-import { IoMdAdd } from "react-icons/io";
 import { IoCheckmarkCircleOutline } from 'react-icons/io5'; 
 import MovieDetails from './MovieDetails';
 
-const Hover = ({ name, details, date, movieId, mediaType }) => {
+const Hover = ({ name, details, date, movieId, mediaType, addToWatchList, addToWatchedList }) => {
   const [isActive, setIsActive] = useState(false);
 
   // Toggle active state on click
@@ -19,7 +18,10 @@ const Hover = ({ name, details, date, movieId, mediaType }) => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-addcolor h-12 flex items-center justify-center rounded-lg">
         <button
           className="text-white  ml-2 font-semibold"
-          onClick={handleIconClick}
+          onClick={()=> {
+            handleIconClick();
+            addToWatchList();
+          }}
         >
           Add to Watchlist
         </button>
@@ -27,7 +29,10 @@ const Hover = ({ name, details, date, movieId, mediaType }) => {
       <div className="absolute top-52 left-32 transform -translate-x-2/3 -translate-y-2/3 bg-addcolor h-12 flex items-center justify-center rounded-lg pl-3 pr-2">
         <button
           className="text-white  ml-2  font-semibold"
-          onClick={handleIconClick}
+          onClick={()=> {
+            handleIconClick();
+            addToWatchedList();
+          }}
         >
           Add to Watchedlist
         </button>
@@ -41,7 +46,6 @@ const Hover = ({ name, details, date, movieId, mediaType }) => {
         />
       )}
 
-      {/* Pass mediaType to MovieDetails */}
       <MovieDetails 
         name={name} 
         details={details} 

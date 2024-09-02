@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Hover from './Hover';
 
-const Card = ({ title, image, date, name, details, rating, movieId, mediaType }) => {
+const Card = ({ title, image, date, name, details, rating, movieId, mediaType, addToWatchList, addToWatchedList }) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -19,6 +19,8 @@ const Card = ({ title, image, date, name, details, rating, movieId, mediaType })
             date={date} 
             movieId={movieId} 
             mediaType={mediaType}
+            addToWatchList={() => addToWatchList(item)}
+        addToWatchedList={() => addToWatchedList(item)}
           />
         </div>
       )}

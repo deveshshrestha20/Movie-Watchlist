@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Card from './Card';
 import axios from 'axios';
+import WatchList from './Pages/WatchList';
 
 const ApiFetch = ({ query }) => {
   const [items, setItems] = useState([]);
+  const [watchList, setWatchList] = useState([]);
+  const [watchedList, setWatchedList] = useState([])
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -47,6 +50,21 @@ const ApiFetch = ({ query }) => {
     fetchItems();
   }, [fetchItems]);
 
+  // Function to add items to the watchlist
+  const addToWatchList = (item) => {
+    if(!watchList.some((i) => i.id === item.id)) {
+      setWatchList([...watchList, item]);
+    }
+  };
+
+
+  // Function to add items to the watched list
+  const addToWatchedList = (item) => {
+    if (!watchedList.some((i) => i.id === item.id)) {
+      setWatchedList([...watchedList, item]);
+    }
+  };
+
   if (loading) {
     return <p className="text-center mt-4">Loading items...</p>;
   }
@@ -66,6 +84,7 @@ const ApiFetch = ({ query }) => {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 p-4 justify-items-center">
+      
       {filteredItems.map((item) => (
         <Card
           key={item.id}
@@ -83,6 +102,8 @@ const ApiFetch = ({ query }) => {
           rating={String(item.vote_average).slice(0, 3) || 'N/A'}
           movieId={item.id}
           mediaType={item.media_type} 
+          addToWatchList={addToWatchList}
+          addToWatchedList={addToWatchedList}
         />
       ))}
     </div>
